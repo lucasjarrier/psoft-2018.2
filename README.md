@@ -11,7 +11,8 @@
 - [ ] Eu, como cliente, gostaria de logar no sistema, para poder ter acesso às funcionalidades destinadas ao cliente.
 
 #### Grupo:
-* [Luan Carlos](https://github.com/luanc03)
+* [André Queiroz](https://github.com/andrefqms)
+* [Caio Simplício](https://github.com/hiroshie)
 * [Lucas Anthony](https://github.com/lucasanthony)
 * [Thallyson José](https://github.com/thallysonjsa)
 
