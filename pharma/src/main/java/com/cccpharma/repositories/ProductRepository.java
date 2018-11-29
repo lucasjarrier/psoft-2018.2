@@ -9,7 +9,12 @@ import org.springframework.data.jpa.repository.Query;
 public interface ProductRepository extends JpaRepository<Produto, String> {
 
     @Query("select nome from Produto p where p.nome = ?1")
-    List<String> findByNome(String nome);
+    Produto findByNome(String nome);
 
+    @Query("select preco from Produto p where p.preco = ?1")
+    Produto findByPreco(Double preco);
+
+    @Query("select categoria from Produto p where p.categoria = ?1")
+    Produto findByCategoria(String categoria);
 
 }

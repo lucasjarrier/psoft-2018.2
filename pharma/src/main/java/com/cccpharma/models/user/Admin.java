@@ -33,9 +33,9 @@ public class Admin {
 
     public Admin(@Size(min = 11, max = 11) String cpf, 
     String nome, String email) {
-        this.cpf = cpf;
-        this.nome = nome;
-        this.email = email;
+        this.cpf = "11111111111";
+        this.nome = "Thallyson";
+        this.email = "thallyson.alves@ccc.ufcg.edu.br";
     }
 
     public String getCpf() {
