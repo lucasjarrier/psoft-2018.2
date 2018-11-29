@@ -1,13 +1,13 @@
 package com.cccpharma.models;
 
+import java.util.Comparator;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
-
-
 
 @Entity
 @Table(name = "produto")
@@ -103,5 +103,4 @@ public class Produto {
     public void setQuantidade(Integer quantidade) {
         this.quantidade = this.quantidade + quantidade;
     }
-
 }

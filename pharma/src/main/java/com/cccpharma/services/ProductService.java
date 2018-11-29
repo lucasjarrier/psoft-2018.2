@@ -1,7 +1,6 @@
 package com.cccpharma.services;
 
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 
 import com.cccpharma.models.Produto;
@@ -12,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class ProductService {
+
 
     @Autowired
     ProductRepository productRepository;
@@ -41,6 +41,6 @@ public class ProductService {
 
     public List<Produto> orderByNome(String nome) {
         List<Produto> list = this.getAll();
-        return list;
+        Collections.sort(list, new MeuComparador(MeuComparador.POR_NOME))
     }
 }
