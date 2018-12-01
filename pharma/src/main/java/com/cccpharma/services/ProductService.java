@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.cccpharma.models.Produto;
 import com.cccpharma.repositories.ProductRepository;
+import com.cccpharma.util.MeuComparador;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,6 +20,10 @@ public class ProductService {
     public List<Produto> getAll() {
         return this.productRepository.findAll();
     }
+    
+    public Produto cadastrar(Produto produto) {
+		return this.productRepository.save(produto);
+	}
 
     public Produto findByNome(String nome) {
         return this.productRepository.findByNome(nome);
@@ -41,6 +46,13 @@ public class ProductService {
 
     public List<Produto> orderByNome(String nome) {
         List<Produto> list = this.getAll();
-        Collections.sort(list, new MeuComparador(MeuComparador.POR_NOME))
+        Collections.sort(list, new MeuComparador(MeuComparador.POR_NOME));
+        return list;
+    }
+
+    public List<Produto> orderByPrice(Double preco) {
+        List<Produto> list = this.getAll();
+        Collections.sort(list, new MeuComparador(MeuComparador.POR_PRECO));
+        return list;
     }
 }

@@ -54,6 +54,4 @@ public class Admin {
         this.nome = nome;
     }
 
-
-
 }

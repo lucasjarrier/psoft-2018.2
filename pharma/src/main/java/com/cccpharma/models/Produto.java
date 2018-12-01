@@ -1,7 +1,5 @@
 package com.cccpharma.models;
 
-import java.util.Comparator;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
