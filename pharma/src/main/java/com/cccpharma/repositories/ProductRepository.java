@@ -7,5 +7,7 @@ import org.springframework.data.repository.query.Param;
 public interface ProductRepository extends JpaRepository<Produto, String> {
 
 	Produto findByNome(@Param("nome") String nome);
+	
+	Produto findByCodigo(@Param("codigo") String codigo);
 
 }

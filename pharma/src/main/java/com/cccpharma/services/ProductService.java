@@ -28,6 +28,10 @@ public class ProductService {
     public Produto findByNome(String nome) {
         return this.productRepository.findByNome(nome);
     }
+    
+    public Produto findByCodigo(String codigo) {
+    	return this.productRepository.findByCodigo(codigo);
+    }
 
     public Boolean getDisponibilidadeProduto(String nome) {
         Produto p = this.productRepository.findByNome(nome);
@@ -43,14 +47,18 @@ public class ProductService {
         Produto p = this.productRepository.findByNome(nome);
         p.setPreco(preco);
     }
+    
+    public void deleteProduct(Produto p) {
+    	this.productRepository.delete(p);
+    }
 
-    public List<Produto> orderByNome(String nome) {
+    public List<Produto> orderByNome() {
         List<Produto> list = this.getAll();
         Collections.sort(list, new MeuComparador(MeuComparador.POR_NOME));
         return list;
     }
 
-    public List<Produto> orderByPrice(Double preco) {
+    public List<Produto> orderByPrice() {
         List<Produto> list = this.getAll();
         Collections.sort(list, new MeuComparador(MeuComparador.POR_PRECO));
         return list;

@@ -23,7 +23,7 @@ public class ClientController {
 	ClientService clientService;
 
 	@RequestMapping(value = "/clientes", produces = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.GET)
-	public List<Cliente> get() {
+	public List<Cliente> getClients() {
 		return clientService.getAll();
 	}
 }
