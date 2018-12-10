@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -32,8 +33,8 @@ public class ClientController {
 		return this.clientService.cadastrar(client);
 	}
 	
-	@RequestMapping(value = "/clientes/deletar", method = RequestMethod.DELETE)
-	public String deleteClient(String cpf) {
+	@RequestMapping(value = "/clientes/deletar/{cpf}", method = RequestMethod.DELETE)
+	public String deleteClient(@PathVariable String cpf) {
 		return this.clientService.excluir(cpf);
 	}
 
