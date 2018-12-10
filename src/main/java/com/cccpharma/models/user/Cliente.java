@@ -7,6 +7,8 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import com.cccpharma.models.*;
+import java.util.*;
 
 
 @Entity
@@ -27,6 +29,9 @@ public class Cliente {
     @NotNull(message = "Email não pode ser nulo!")
     @NotEmpty(message = "Email não pode ser vazio!")
     private String email;
+    
+    @Column(name = "carrinho")
+    private List<Produto> carrinho = new ArrayList<Produto>();
 
     public Cliente() {
 
@@ -53,6 +58,14 @@ public class Cliente {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+    
+    public void addProduto(Produto produto) {
+    	this.carrinho.add(produto);
+    }
+    
+    public void removeProduto(Produto produto) {
+    	this.carrinho.remove(produto);
     }
 
 }

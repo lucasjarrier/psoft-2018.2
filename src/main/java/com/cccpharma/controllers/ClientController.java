@@ -37,5 +37,6 @@ public class ClientController {
 	public String deleteClient(@PathVariable String cpf) {
 		return this.clientService.excluir(cpf);
 	}
+	
 
 }

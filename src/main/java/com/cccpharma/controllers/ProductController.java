@@ -29,7 +29,7 @@ public class ProductController {
 	}
 	
 	@RequestMapping(value = "/produtos/deletar", method = RequestMethod.DELETE)
-	public String exluirProduto(String codigo) {
+	public String deleteProduct(String codigo) {
 		Produto p = this.productService.findByCodigo(codigo);
 		this.productService.deleteProduct(p);
 		return "Produto excluído";
