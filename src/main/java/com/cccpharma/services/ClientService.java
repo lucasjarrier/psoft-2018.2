@@ -1,6 +1,7 @@
 package com.cccpharma.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import com.cccpharma.models.user.Cliente;
 import com.cccpharma.repositories.ClientRepository;
@@ -23,5 +24,9 @@ public class ClientService {
          return client;
     }
 
+    public String excluir(String cpf) {
+    	this.clientRepository.deleteById(cpf);
+    	return "Cliente deletado!";
+    }
     
 }

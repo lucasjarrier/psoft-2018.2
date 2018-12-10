@@ -28,8 +28,13 @@ public class ClientController {
 	}
 	
 	@RequestMapping(value = "/clientes/cadastrar", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.POST)
-	public Cliente addProduct(@RequestBody Cliente client) {
+	public Cliente addClient(@RequestBody Cliente client) {
 		return this.clientService.cadastrar(client);
+	}
+	
+	@RequestMapping(value = "/clientes/deletar", method = RequestMethod.DELETE)
+	public String deleteClient(String cpf) {
+		return this.clientService.excluir(cpf);
 	}
 
 }
