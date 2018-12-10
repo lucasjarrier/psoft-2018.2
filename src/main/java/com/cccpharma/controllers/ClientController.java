@@ -26,4 +26,10 @@ public class ClientController {
 	public List<Cliente> getClients() {
 		return clientService.getAll();
 	}
+	
+	@RequestMapping(value = "/clientes/cadastrar", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.POST)
+	public Cliente addProduct(@RequestBody Cliente client) {
+		return this.clientService.cadastrar(client);
+	}
+
 }

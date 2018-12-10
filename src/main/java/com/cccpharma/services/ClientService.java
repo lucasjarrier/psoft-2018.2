@@ -18,11 +18,9 @@ public class ClientService {
         return this.clientRepository.findAll();
     }
 
-    public Cliente[] save(Cliente[] clients) {
-        for (Cliente client: clients) {
-            this.clientRepository.save(client);
-        }
-        return clients;
+    public Cliente cadastrar(Cliente client) {
+         this.clientRepository.save(client);
+         return client;
     }
 
     
