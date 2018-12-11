@@ -3,6 +3,8 @@ package com.cccpharma.models.user;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
@@ -30,8 +32,9 @@ public class Cliente {
     @NotEmpty(message = "Email não pode ser vazio!")
     private String email;
     
-    @Column(name = "carrinho")
-    private List<Produto> carrinho = new ArrayList<Produto>();
+    @JoinColumn(name = "carrinho", referencedColumnName = "codigo")
+    @OneToMany
+    private List<Produto> carrinho = new ArrayList<>();
 
     public Cliente() {
 
@@ -60,12 +63,4 @@ public class Cliente {
         this.nome = nome;
     }
     
-    public void addProduto(Produto produto) {
-    	this.carrinho.add(produto);
-    }
-    
-    public void removeProduto(Produto produto) {
-    	this.carrinho.remove(produto);
-    }
-
 }

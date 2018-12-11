@@ -29,34 +29,6 @@ public class ClientService {
     	this.clientRepository.deleteById(cpf);
     	return "Cliente deletado!";
     }
-    
-    public void addProduto(String cpf, Produto product) throws Exception {
-    	Optional<Cliente> c = this.clientRepository.findById(cpf);
-    	if (!c.isPresent()) {
-    		throw new Exception("Client doesn't exist!");
-    	}
-    	
-    	if (!product.getSituacao()) {
-    		throw new Exception("Product doesn't exist!");
-    	}
-    	Cliente aux = c.get();
-    	aux.addProduto(product);
-    	this.clientRepository.save(aux);
-    }
-    
-    public void removeProduto(String cpf, Produto product) throws Exception {
-    	Optional<Cliente> c = this.clientRepository.findById(cpf);
-    	if (!c.isPresent()) {
-    		throw new Exception("Client doesn't exists!");
-    	}
-    	
-    	if (!product.getSituacao()) {
-    		throw new Exception("Product doesn't exists!");
-    	}
-    	Cliente aux = c.get();
-    	aux.removeProduto(product);
-    	this.clientRepository.save(aux);
-    	
-    }
+   
     
 }
