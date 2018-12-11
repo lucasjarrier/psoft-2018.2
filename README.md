@@ -5,7 +5,7 @@
 
 #### User Stories requeridas:
 - [x] Eu, como administrador, gostaria de ter o sistema armazenando todos os seus dados de forma persistente em um banco de dados.
-- [ ] Eu, como usuário, gostaria de acessar o sistema através de um link na web, preferencialmente usando o Heroku.
+- [x] Eu, como usuário, gostaria de acessar o sistema através de um link na web, preferencialmente usando o Heroku.
 - [ ] Eu, como administrador, gostaria de logar no sistema, para ter acesso às funcionalidades destinadas ao administrador.
 - [ ] Eu, como cliente, gostaria de realizar o cadastro no sistema, para poder obter acesso ao sistema.
 - [ ] Eu, como cliente, gostaria de logar no sistema, para poder ter acesso às funcionalidades destinadas ao cliente.
