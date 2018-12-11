@@ -1,5 +1,8 @@
 package com.cccpharma.models.user;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -7,8 +10,8 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import com.cccpharma.models.*;
-import java.util.*;
+
+import com.cccpharma.models.Produto;
 
 
 @Entity
@@ -30,8 +33,9 @@ public class Cliente {
     @NotEmpty(message = "Email não pode ser vazio!")
     private String email;
     
+    
     @Column(name = "carrinho")
-    private List<Produto> carrinho = new ArrayList<Produto>();
+    private List<Produto> carrinho = new ArrayList<>();
 
     public Cliente() {
 
@@ -67,5 +71,4 @@ public class Cliente {
     public void removeProduto(Produto produto) {
     	this.carrinho.remove(produto);
     }
-
 }
