@@ -36,9 +36,9 @@ public class Cliente {
     private String email;
     
 
-    @JoinColumn(name = "carrinho", referencedColumnName = "codigo")
-    @OneToMany
-    private List<Produto> carrinho = new ArrayList<>();
+//     @JoinColumn(name = "carrinho", referencedColumnName = "codigo")
+//     @OneToMany
+//     private List<Produto> carrinho = new ArrayList<>();
 
     public Cliente() {
 
@@ -67,12 +67,12 @@ public class Cliente {
         this.nome = nome;
     }
     
-    public void addProduto(Produto produto) {
-    	this.carrinho.add(produto);
-    }
+//     public void addProduto(Produto produto) {
+//     	this.carrinho.add(produto);
+//     }
     
-    public void removeProduto(Produto produto) {
-    	this.carrinho.remove(produto);
-    }
+//     public void removeProduto(Produto produto) {
+//     	this.carrinho.remove(produto);
+//     }
 
 }
