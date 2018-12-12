@@ -64,13 +64,13 @@ public class Cliente {
         this.nome = nome;
     }
     
-    public List<Produto> getCarrinho() {
-        return this.carrinho;
-    }
+//     public List<Produto> getCarrinho() {
+//         return this.carrinho;
+//     }
     
-    public void setCarrinho(List<Produto> car) {
-        this.carrinho = car;
-    }
+//     public void setCarrinho(List<Produto> car) {
+//         this.carrinho = car;
+//     }
     
 //     public void addProduto(Produto produto) {
 //     	this.carrinho.add(produto);
