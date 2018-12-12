@@ -46,7 +46,7 @@ public class Cliente {
         this.cpf = cpf;
         this.nome = nome;
         this.email = email;
-        this.ccarrinho = new ArrayList<>();
+        this.carrinho = new ArrayList<>();
     }
 
     public String getCpf() {
