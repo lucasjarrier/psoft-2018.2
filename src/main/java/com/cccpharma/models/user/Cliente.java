@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.HashSet;
 
+import javax.persistence.ElementCollection;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
