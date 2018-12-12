@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.HashSet;
 
-import javax.persistence.ElementCollection;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -39,7 +38,6 @@ public class Cliente {
     
     @OneToMany
     @JoinColumn(name = "carrinho", referencedColumnName = "codigo")
-    @ElementCollection
     private Set<Produto> carrinho = new HashSet<>();
 
     public Cliente() {
