@@ -52,11 +52,11 @@ public class Cliente {
         this.email = email;
     }
     
-    public List<Produto> getCarrinho() {
+    public Set<Produto> getCarrinho() {
         return this.carrinho;
     }
     
-    public void setCarrinho(List<Produto> carrinho) {
+    public void setCarrinho(Set<Produto> carrinho) {
         this.carrinho = carrinho;
     }
 
