@@ -36,7 +36,7 @@ public class Cliente {
     private String email;
     
     @OneToMany
-    @JoinColumn(name = "fk_produtos", referencedColumnName = "codigo")
+    @JoinColumn(name = "fk_produtos", referencedColumnName = "cpf")
     private List<Produto> carrinho = new ArrayList<>();
 
     public Cliente() {
