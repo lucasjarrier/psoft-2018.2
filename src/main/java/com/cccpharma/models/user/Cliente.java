@@ -35,7 +35,7 @@ public class Cliente {
     @NotEmpty(message = "Email não pode ser vazio!")
     private String email;
     
-    private List<Produto> carrinho = new ArrayList<>();
+    private List<Produto> carrinho;
 
     public Cliente() {
 
@@ -46,6 +46,7 @@ public class Cliente {
         this.cpf = cpf;
         this.nome = nome;
         this.email = email;
+        this.ccarrinho = new ArrayList<>();
     }
 
     public String getCpf() {
