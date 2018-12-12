@@ -35,7 +35,7 @@ public class Cliente {
     @NotEmpty(message = "Email não pode ser vazio!")
     private String email;
     
-    private List<Produto> carrinho;
+//     private List<Produto> carrinho = new ArrayList<>();
 
     public Cliente() {
 
@@ -46,7 +46,6 @@ public class Cliente {
         this.cpf = cpf;
         this.nome = nome;
         this.email = email;
-        this.carrinho = new ArrayList<>();
     }
 
     public String getCpf() {
@@ -73,12 +72,12 @@ public class Cliente {
         this.carrinho = car;
     }
     
-    public void addProduto(Produto produto) {
-    	this.carrinho.add(produto);
-    }
+//     public void addProduto(Produto produto) {
+//     	this.carrinho.add(produto);
+//     }
     
-    public void removeProduto(Produto produto) {
-    	this.carrinho.remove(produto);
-    }
+//     public void removeProduto(Produto produto) {
+//     	this.carrinho.remove(produto);
+//     }
 
 }
