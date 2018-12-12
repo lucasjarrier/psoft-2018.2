@@ -35,9 +35,6 @@ public class Cliente {
     @NotEmpty(message = "Email não pode ser vazio!")
     private String email;
     
-
-    @JoinColumn(name = "carrinho", referencedColumnName = "codigo")
-    @OneToMany
     private List<Produto> carrinho = new ArrayList<>();
 
     public Cliente() {
