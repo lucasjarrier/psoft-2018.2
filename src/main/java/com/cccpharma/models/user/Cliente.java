@@ -2,6 +2,7 @@ package com.cccpharma.models.user;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.HashSet;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -36,8 +37,9 @@ public class Cliente {
     private String email;
     
     @OneToMany
-    @JoinColumn(name = "carrinho", referencedColumnName = "id")
-    private List<Produto> carrinho = new ArrayList<>();
+    @JoinColumn(name = "carrinho", referencedColumnName = "codigo")
+    @ElementCollection
+    private Set<Produto> carrinho = new HashSet<>();
 
     public Cliente() {
 
