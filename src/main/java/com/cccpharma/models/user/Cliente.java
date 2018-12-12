@@ -2,7 +2,6 @@ package com.cccpharma.models.user;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.HashSet;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -36,9 +35,9 @@ public class Cliente {
     @NotEmpty(message = "Email não pode ser vazio!")
     private String email;
     
-    @OneToMany
-    @JoinColumn(name = "carrinho", referencedColumnName = "codigo")
-    private Set<Produto> carrinho = new HashSet<>();
+//     @OneToMany
+//     @JoinColumn(name = "carrinho", referencedColumnName = "codigo")
+//     private List<Produto> carrinho = new ArrayList<>();
 
     public Cliente() {
 
@@ -51,13 +50,13 @@ public class Cliente {
         this.email = email;
     }
     
-    public Set<Produto> getCarrinho() {
-        return this.carrinho;
-    }
+//     public List<Produto> getCarrinho() {
+//         return this.carrinho;
+//     }
     
-    public void setCarrinho(Set<Produto> carrinho) {
-        this.carrinho = carrinho;
-    }
+//     public void setCarrinho(List<Produto> carrinho) {
+//         this.carrinho = carrinho;
+//     }
 
     public String getCpf() {
         return cpf;
