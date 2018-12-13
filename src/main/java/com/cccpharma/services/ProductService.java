@@ -52,8 +52,10 @@ public class ProductService {
         p.setPreco(preco);
     }
     
-    public void deleteProduct(Produto p) {
+    public Produto deleteProduct(String codigo) {
+    	Produto p = this.productRepository.findByCodigo(codigo);
     	this.productRepository.delete(p);
+    	return p;
     }
 
     public List<Produto> orderByNome() {
