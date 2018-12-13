@@ -1,5 +1,8 @@
 package com.cccpharma.models;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -40,8 +43,10 @@ public class Produto {
     @Column(name = "quantidade")
     @NotNull(message = "Quantidade não pode ser nula!")
     private int quantidade;
+    
+    private ArrayList<String> carrinho = new ArrayList<>();
 
-    public Produto() {
+	public Produto() {
         
     }
 
@@ -56,6 +61,14 @@ public class Produto {
         this.quantidade = quantidade;
     }
 
+    public ArrayList<String> getCarrinho() {
+		return carrinho;
+	}
+
+	public void setCarrinho(ArrayList<String> carrinho) {
+		this.carrinho = carrinho;
+	}
+    
     public String getCodigo() {
         return this.codigo;
     }
