@@ -26,7 +26,7 @@
 
 #### Grupo:
 * [André Queiroz](https://github.com/andrefqms)
-* [Caio Simplício](https://github.com/hiroshie)
+* [Luan Carlos](https://github.com/LuanC03)
 * [Lucas Anthony](https://github.com/lucasanthony)
 * [Thallyson José](https://github.com/thallysonjsa)
 
