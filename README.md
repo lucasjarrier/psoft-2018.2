@@ -13,7 +13,7 @@
 #### User Stories Optativas:
 - [x] Eu, como administrador, gostaria de adicionar um novo produto no sistema, informando seu nome, código de barra, fabricante, situação e categoria. As categorias disponíveis na farmácia são: medicamentos, produtos de higiene pessoal, cosméticos e alimentos.
 - [x] Eu, como administrador, gostaria de consultar a disponibilidade e o preço de cada produto da farmácia.
-- [ ] Eu, como administrador, gostaria de atribuir um preço (R$) a um determinado produto no sistema.
+- [x] Eu, como administrador, gostaria de atribuir um preço (R$) a um determinado produto no sistema.
 - [x] Eu, como cliente, gostaria de consultar a disponibilidade e o preço de cada produto da farmácia (não precisa estar logado).
 - [ ] Eu, como administrador, gostaria de ordenar os produtos e os registros de vendas da farmácia de acordo com informações importantes deles (por exemplo, ordenar os produtos por nome, preço, data, categoria).
 - [ ] Eu, como administrador, gostaria de atribuir descontos para cada categoria de produto, dessa forma, o cliente recebe um abatimento no valor final da compra. Tipos de desconto: sem desconto (0%), bom desconto (10%), ótimo desconto (25%) e super desconto (50%).
