@@ -43,8 +43,6 @@ public class Produto {
     @Column(name = "quantidade")
     @NotNull(message = "Quantidade não pode ser nula!")
     private int quantidade;
-    
-    private ArrayList<String> carrinho = new ArrayList<>();
 
 	public Produto() {
         
@@ -60,14 +58,6 @@ public class Produto {
         this.preco = preco;
         this.quantidade = quantidade;
     }
-
-    public ArrayList<String> getCarrinho() {
-		return carrinho;
-	}
-
-	public void setCarrinho(ArrayList<String> carrinho) {
-		this.carrinho = carrinho;
-	}
     
     public String getCodigo() {
         return this.codigo;

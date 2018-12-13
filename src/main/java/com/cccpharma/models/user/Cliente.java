@@ -35,9 +35,7 @@ public class Cliente {
     @NotEmpty(message = "Email não pode ser vazio!")
     private String email;
     
-//     @OneToMany
-//     @JoinColumn(name = "carrinho", referencedColumnName = "codigo")
-//     private List<Produto> carrinho = new ArrayList<>();
+    private ArrayList<Produto> carrinho = new ArrayList<>();
 
     public Cliente() {
 
@@ -50,13 +48,13 @@ public class Cliente {
         this.email = email;
     }
     
-//     public List<Produto> getCarrinho() {
-//         return this.carrinho;
-//     }
+     public ArrayList<Produto> getCarrinho() {
+         return this.carrinho;
+     }
     
-//     public void setCarrinho(List<Produto> carrinho) {
-//         this.carrinho = carrinho;
-//     }
+     public void setCarrinho(ArrayList<Produto> carrinho) {
+         this.carrinho = carrinho;
+     }
 
     public String getCpf() {
         return cpf;
