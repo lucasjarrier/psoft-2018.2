@@ -40,7 +40,7 @@ public class ProductController {
 	}
 	
 	@RequestMapping(value = "/produtos/crud/{codigo}", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.PUT)
-	public int serPrice(@PathVariable String codigo, @RequestBody Double preco) {
+	public Double serPrice(@PathVariable String codigo, @RequestBody Double preco) {
 		return this.productService.mudarPreco(codigo, preco);
 	}
 

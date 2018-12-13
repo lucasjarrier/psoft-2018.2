@@ -18,6 +18,6 @@ public interface ProductRepository extends JpaRepository<Produto, String> {
 	@Modifying
 	@Transactional
 	@Query("update Produto p set p.preco = ?2 where p.codigo = ?1")
-	int mudarPreco(String codigo, Double preco);
+	void mudarPreco(String codigo, Double preco);
 	
 }

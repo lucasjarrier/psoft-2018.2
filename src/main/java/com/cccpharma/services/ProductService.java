@@ -29,8 +29,9 @@ public class ProductService {
         return this.productRepository.findByNome(nome);
     }
     
-    public int mudarPreco(String codigo, Double preco) {
-    	return this.productRepository.mudarPreco(codigo, preco);
+    public Double mudarPreco(String codigo, Double preco) {
+    	this.productRepository.mudarPreco(codigo, preco);
+    	return preco;
     }
     
     public Produto findByCodigo(String codigo) {
