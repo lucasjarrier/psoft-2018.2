@@ -27,11 +27,9 @@ public class ProductController {
 		return this.productService.orderByNome();
 	}
 	
-	@RequestMapping(value = "/produtos/crud", method = RequestMethod.DELETE)
-	public String deleteProduct(String codigo) {
-		Produto p = this.productService.findByCodigo(codigo);
-		this.productService.deleteProduct(p);
-		return "Produto excluído";
+	@RequestMapping(value = "/produtos/crud/{codigo}", method = RequestMethod.DELETE)
+	public Produto deleteProduct(@PathVariable String codigo) {
+		return this.productService.deleteProduct(codigo);
 	}
 	
 	@RequestMapping(value = "/produtos/crud", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.POST)
