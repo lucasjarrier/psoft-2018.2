@@ -27,7 +27,6 @@ public class Produto {
 
     @Column(name = "situacao")
     @NotNull(message = "Situação não pode ser nula!")
-    @NotEmpty(message = "Situação não pode ser vazia!")
     private boolean situacao;
 
     @Column(name = "categoria")
@@ -40,15 +39,14 @@ public class Produto {
 
     @Column(name = "quantidade")
     @NotNull(message = "Quantidade não pode ser nula!")
-    @NotEmpty(message = "Quantidade não pode ser vazia!")
-    private Integer quantidade;
+    private int quantidade;
 
     public Produto() {
         
     }
 
     public Produto(String codigo, String nome, String fabricante, boolean situacao, String categoria, 
-    Double preco, Integer quantidade) {
+    Double preco, int quantidade) {
         this.codigo = codigo;
         this.nome = nome;
         this.fabricante = fabricante;
@@ -82,7 +80,7 @@ public class Produto {
         return preco;
     }
 
-    public Integer getQuantidade() {
+    public int getQuantidade() {
         return quantidade;
     }
 
@@ -98,7 +96,7 @@ public class Produto {
         this.preco = preco;
     }
 
-    public void setQuantidade(Integer quantidade) {
+    public void setQuantidade(int quantidade) {
         this.quantidade = this.quantidade + quantidade;
     }
 }
