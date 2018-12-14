@@ -1,13 +1,10 @@
 package com.cccpharma.models.user;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
@@ -72,20 +69,4 @@ public class Cliente {
         this.nome = nome;
     }
     
-//     public List<Produto> getCarrinho() {
-//         return this.carrinho;
-//     }
-    
-//     public void setCarrinho(List<Produto> car) {
-//         this.carrinho = car;
-//     }
-    
-//     public void addProduto(Produto produto) {
-//     	this.carrinho.add(produto);
-//     }
-    
-//     public void removeProduto(Produto produto) {
-//     	this.carrinho.remove(produto);
-//     }
-
 }

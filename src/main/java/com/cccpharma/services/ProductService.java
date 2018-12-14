@@ -6,7 +6,9 @@ import java.util.List;
 import com.cccpharma.models.Produto;
 import com.cccpharma.models.user.Cliente;
 import com.cccpharma.repositories.ProductRepository;
-import com.cccpharma.util.MeuComparador;
+import com.cccpharma.util.CategoryComparator;
+import com.cccpharma.util.NameComparator;
+import com.cccpharma.util.PriceComparator;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -62,14 +64,20 @@ public class ProductService {
     
     public List<Produto> orderByNome() {
         List<Produto> list = this.getAll();
-        Collections.sort(list, new MeuComparador(MeuComparador.POR_NOME));
+        Collections.sort(list, new NameComparator());
         return list;
     }
 
     public List<Produto> orderByPrice() {
         List<Produto> list = this.getAll();
-        Collections.sort(list, new MeuComparador(MeuComparador.POR_PRECO));
+        Collections.sort(list, new PriceComparator());
         return list;
+    }
+    
+    public List<Produto> orderByCategory() {
+    	List<Produto> list = this.getAll();
+    	Collections.sort(list, new CategoryComparator());
+    	return list;
     }
     
     public void atribuirDesconto(String categoria, Integer desconto) {

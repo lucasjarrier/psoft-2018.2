@@ -22,17 +22,14 @@ public class ProductController {
 		return this.productService.orderByPrice();
 	}
 	
-	// SEM PEGAR
-	@RequestMapping(value = "/produtos/desconto/{categoria}", produces = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.PUT)
-	public void atribuirDesconto(@PathVariable String categoria, @RequestBody Integer desconto) {
-		 this.productService.atribuirDesconto(categoria, desconto);
-	}
-	
-	
-	
 	@RequestMapping(value = "/produtos/orderbyname", produces = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.GET)
 	public List<Produto> getProductsperName() {
 		return this.productService.orderByNome();
+	}
+	
+	@RequestMapping(value = "/produtos/orderbycategory", produces = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.GET)
+	public List<Produto> getProductsByCategory() {
+		return this.productService.orderByCategory();
 	}
 	
 	@RequestMapping(value = "/produtos/crud/{codigo}", method = RequestMethod.DELETE)
@@ -50,6 +47,11 @@ public class ProductController {
 		return this.productService.mudarPreco(codigo, preco);
 	}
 
+	@RequestMapping(value = "/produtos/desconto/{categoria}", produces = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.PUT)
+	public void atribuirDesconto(@PathVariable String categoria, @RequestBody Integer desconto) {
+		this.productService.atribuirDesconto(categoria, desconto);
+	}
+		
 	@RequestMapping(value = "/produtos", produces = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.GET)
 	public List<Produto> getProducts() {
 		return this.productService.getAll();
