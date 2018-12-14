@@ -4,6 +4,7 @@ import java.util.Collections;
 import java.util.List;
 
 import com.cccpharma.models.Produto;
+import com.cccpharma.models.user.Cliente;
 import com.cccpharma.repositories.ProductRepository;
 import com.cccpharma.util.MeuComparador;
 
@@ -58,7 +59,7 @@ public class ProductService {
     	this.productRepository.delete(p);
     	return p;
     }
-
+    
     public List<Produto> orderByNome() {
         List<Produto> list = this.getAll();
         Collections.sort(list, new MeuComparador(MeuComparador.POR_NOME));
@@ -70,4 +71,13 @@ public class ProductService {
         Collections.sort(list, new MeuComparador(MeuComparador.POR_PRECO));
         return list;
     }
+    
+    public void atribuirDesconto(String categoria, Integer desconto) {
+		this.productRepository.atribuirDesconto(categoria, desconto);
+	}
+    
+    public void addCarrinho(Cliente c, Produto p) {
+    	c.getCarrinho().add(p);
+    }
+    
 }
