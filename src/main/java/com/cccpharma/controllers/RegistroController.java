@@ -27,7 +27,8 @@ public class RegistroController {
 	}
 	
 	@RequestMapping(value = "/registro/novoRegistro", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.POST)
-	public String criarRegistroAdmin(@RequestBody ArrayList<Produto> produtos) throws Exception {
+	public String criarRegistroAdmin(@RequestBody ArrayList<String> codigos) throws Exception {
+		ArrayList<Produto> produtos = this.registroService.procurarProdutos(codigos);
 		return this.registroService.criarRegistro(produtos);
 	}
 	

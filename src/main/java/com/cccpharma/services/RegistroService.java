@@ -110,4 +110,12 @@ public class RegistroService {
 		}
 		return retorno;
 	}
+	
+	public ArrayList<Produto> procurarProdutos(ArrayList<String> codigos) {
+		ArrayList<Produto> retorno = new ArrayList<>();
+		for (String codigo : codigos) {
+			retorno.add(produtoRepository.findByCodigo(codigo));
+		}
+		return retorno;
+	}
 }
