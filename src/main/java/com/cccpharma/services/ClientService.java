@@ -1,6 +1,5 @@
 package com.cccpharma.services;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import com.cccpharma.models.Produto;
@@ -52,11 +51,12 @@ public class ClientService {
 		return retorno;
 	}
     
-	public String adicionaProdutoAoCarrinho(String username, ArrayList<Produto> carrinho) {
+    public String adicionaProdutoAoCarrinho(String username, Produto produto) {
 		Cliente cliente = clientRepository.findByUsername(username);
 		String retorno;
 		try {
-			cliente.incrementaCarrinho(carrinho);			
+			clientRepository.delete(cliente);
+			cliente.incrementaCarrinho(produto);			
 			clientRepository.save(cliente);
 			retorno = "Carrinho Atualizado";
 		} catch (Exception e) {
@@ -69,6 +69,7 @@ public class ClientService {
 		Cliente cliente = clientRepository.findByUsername(username);
 		String retorno;
 		try {
+			clientRepository.delete(cliente);
 			cliente.removeCarrinho(produto);			
 			clientRepository.save(cliente);
 			retorno = "Carrinho Atualizado";

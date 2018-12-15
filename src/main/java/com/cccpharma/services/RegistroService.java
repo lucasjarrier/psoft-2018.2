@@ -98,7 +98,7 @@ public class RegistroService {
 		String retorno;
 		try {
 			registroRepository.delete(registroRepository.findById(id));
-			List<Produto> produtos = registroRepository.findById(id).getVenda();
+			ArrayList<Produto> produtos = registroRepository.findById(id).getVenda();
 			for (Produto p : produtos) {
 				produtoRepository.delete(p);
 				p.setQuantidade(p.getQuantidade() + 1);

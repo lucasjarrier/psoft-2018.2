@@ -46,7 +46,7 @@ public class Registro {
 		this.id = id;
 	}
 
-	public List<Produto> getVenda() {
+	public ArrayList<Produto> getVenda() {
 		return venda;
 	}
 

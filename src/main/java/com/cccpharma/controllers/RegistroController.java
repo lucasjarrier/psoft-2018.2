@@ -40,4 +40,9 @@ public class RegistroController {
 	public Registro procurarRegistro(@PathVariable Integer id) {
 		return this.registroService.procurarRegistro(id);
 	}
+	
+	@RequestMapping(value = "/registro/removerRegistro/{codigo}", produces = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.DELETE)
+	public String removerRegistro(@PathVariable Integer id) {
+		return this.registroService.removeRegistro(id);
+	}
 }
