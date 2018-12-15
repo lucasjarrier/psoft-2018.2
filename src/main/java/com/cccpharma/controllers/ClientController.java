@@ -49,8 +49,13 @@ public class ClientController {
 	}
 	
 	@RequestMapping(value = "/clientes/adicionaproduto/{username}", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.GET)
-	public String updateCarrinho(@PathVariable String username, @RequestBody ArrayList<Produto> carrinho) {
+	public String updateAdicionaCarrinho(@PathVariable String username, @RequestBody ArrayList<Produto> carrinho) {
 		return this.clientService.adicionaProdutoAoCarrinho(username, carrinho);
+	}
+	
+	@RequestMapping(value = "/clientes/removeProdutoAoCarrinho/{username}", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.GET)
+	public String updateRemoveCarrinho(@PathVariable String username, @RequestBody Produto produto) {
+		return this.clientService.removeProdutoAoCarrinho(username, produto);
 	}
 
 }

@@ -1,7 +1,11 @@
 package com.cccpharma.services;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.cccpharma.models.Produto;
 import com.cccpharma.models.user.Cliente;
@@ -9,9 +13,6 @@ import com.cccpharma.repositories.ProductRepository;
 import com.cccpharma.util.CategoryComparator;
 import com.cccpharma.util.NameComparator;
 import com.cccpharma.util.PriceComparator;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 @Service
 public class ProductService {
@@ -21,7 +22,13 @@ public class ProductService {
     ProductRepository productRepository;
 
     public List<Produto> getAll() {
-        return this.productRepository.findAll();
+    	List<Produto> retorno = new ArrayList<>();
+    	for (Produto produto : this.productRepository.findAll()) {
+			if(!produto.getSituacao())
+				produto.setPreco(00.00);
+			retorno.add(produto);
+		}
+        return retorno;
     }
     
     public boolean verificaCodigo(String codigo) {
@@ -35,7 +42,6 @@ public class ProductService {
     	} else {
     		throw new Exception("Produto já cadastrado!");
     	}
-		
 	}
 
     public Produto findByNome(String nome) {

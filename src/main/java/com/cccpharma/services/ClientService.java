@@ -65,6 +65,20 @@ public class ClientService {
 		}
 		return retorno;
 	}
+	
+	public String removeProdutoAoCarrinho(String username, Produto produto) {
+		Cliente cliente = clientRepository.findByUsername(username);
+		String retorno;
+		try {
+			clientRepository.delete(cliente);
+			cliente.removeCarrinho(produto);			
+			clientRepository.save(cliente);
+			retorno = "Carrinho Atualizado";
+		} catch (Exception e) {
+			retorno = e.getMessage();
+		}
+		return retorno;
+	}
     
     public boolean verificaUsername(String username) {
     	return this.clientRepository.existsById(username);

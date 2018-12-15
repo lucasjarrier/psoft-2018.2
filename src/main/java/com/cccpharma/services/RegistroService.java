@@ -29,8 +29,11 @@ public class RegistroService {
 		ArrayList<Produto> carrinho = cliente.getCarrinho();
 		int qtdItens = validaCarrinho(carrinho);
 		double valorTotal = calculaVenda(carrinho);
-		Registro registro = new Registro(qtdItens, valorTotal, carrinho, idCliente);
+		Registro registro = new Registro(qtdItens, valorTotal, carrinho);
 		try {
+			clienteRepository.delete(cliente);
+			cliente.zeraCarrinho();
+			clienteRepository.save(cliente);
 			registroRepository.save(registro);
 			retorno = "Registro Criado!";
 		} catch (Exception e) {

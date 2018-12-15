@@ -26,20 +26,15 @@ public class Registro {
 	
 	@Column(name = "total")
 	private double total;
-	
-	@Column(name = "idCliente")
-	private String idCliente;
-
-	
+		
 	public Registro() {
 		
 	}
 	
-	public Registro(Integer quantidadeItens, double total, ArrayList<Produto> venda, String idCliente) {
+	public Registro(Integer quantidadeItens, double total, ArrayList<Produto> venda) {
 		this.venda = venda;
 		this.quantidadeItens = quantidadeItens;
 		this.total = total;
-		this.idCliente = idCliente;
 	}
 	
 	public Integer getId() {

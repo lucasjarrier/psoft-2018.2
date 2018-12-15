@@ -76,4 +76,12 @@ public class Cliente {
 		}
 	}
     
+    public void removeCarrinho(Produto produto) {
+		this.carrinho.remove(produto);		
+	}
+
+	public void zeraCarrinho() {
+		this.carrinho = new ArrayList<>();		
+	}
+    
 }
