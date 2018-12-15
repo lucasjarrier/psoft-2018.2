@@ -1,9 +1,7 @@
 package com.cccpharma.services;
 
 import java.util.List;
-import java.util.Optional;
 
-import com.cccpharma.models.Produto;
 import com.cccpharma.models.user.Cliente;
 import com.cccpharma.repositories.ClientRepository;
 

@@ -6,15 +6,14 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "admin")
 public class Admin {
 
     @Id
-    @Column(name = "cpf")
-    private String cpf;
+    @Column(name = "username")
+    private String username;
 
     @Column(name = "nome")
     @NotNull(message = "Nome não pode ser nulo!")
@@ -22,36 +21,39 @@ public class Admin {
     private String nome;
 
 
-    @Column(name = "email")
-    @NotNull(message = "Email não pode ser nulo!")
-    @NotEmpty(message = "Email não pode ser vazio!")
-    private String email;
+    @Column(name = "senha")
+    @NotNull(message = "Senha não pode ser nulo!")
+    @NotEmpty(message = "Senha não pode ser vazio!")
+    private String senha;
 
     public Admin() {
 
     }
 
-    public Admin(@Size(min = 11, max = 11) String cpf, 
-    String nome, String email) {
-        this.cpf = "11111111111";
-        this.nome = "Thallyson";
-        this.email = "thallyson.alves@ccc.ufcg.edu.br";
+    public Admin(String username, String nome, String senha) {
+    	 this.username = "Thallysinho xD";
+         this.nome = "Thallyson";
+         this.senha = "123456789";
     }
 
-    public String getCpf() {
-        return this.cpf;
+    public String getUsername() {
+        return this.username;
     }
 
     public String getNome() {
         return this.nome;
     }
 
-    public String getEmail() {
-        return this.email;
+    public String getSenha() {
+        return this.senha;
     }
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+    
+    public void setSenha(String senha) {
+        this.senha = senha;
     }
 
 }
