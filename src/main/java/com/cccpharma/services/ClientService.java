@@ -34,8 +34,21 @@ public class ClientService {
     	} else {
     		throw new Exception("Cliente não encontrado!");
     	}
-    
     }
+    
+    public String login(String username, String senha) {
+		String retorno;
+		if (!verificaUsername(username))
+			retorno = "Cliente Invalido!";
+		else {
+			Cliente cliente = clientRepository.findByUsername(username);
+			if (senha.equals(cliente.getSenha()))
+				retorno = "Cliente Validado!";
+			else
+				retorno = "Senha Incorreta!";
+		}
+		return retorno;
+	}
     
     public boolean verificaUsername(String username) {
     	return this.clientRepository.existsById(username);

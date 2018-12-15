@@ -39,5 +39,9 @@ public class ClientController {
 		return !(this.clientService.verificaUsername(username));
 	}
 	
+	@RequestMapping(value = "/clientes/login", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.POST)
+	public String login(@RequestBody String username, @RequestBody String senha) throws Exception {
+		return this.clientService.login(username, senha);
+	}
 
 }

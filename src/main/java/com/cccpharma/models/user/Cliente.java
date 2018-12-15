@@ -25,11 +25,10 @@ public class Cliente {
     @NotEmpty(message = "Nome não pode ser vazio!")
     private String nome;
 
-
-    @Column(name = "email")
-    @NotNull(message = "Email não pode ser nulo!")
-    @NotEmpty(message = "Email não pode ser vazio!")
-    private String email;
+    @Column(name = "senha")
+    @NotNull(message = "Senha não pode ser nulo!")
+    @NotEmpty(message = "Senha não pode ser vazio!")
+    private String senha;
     
     private ArrayList<Produto> carrinho = new ArrayList<>();
 
@@ -37,10 +36,10 @@ public class Cliente {
 
     }
 
-    public Cliente(String username, String nome, String email) {
+    public Cliente(String username, String nome, String senha) {
         this.username = username;
         this.nome = nome;
-        this.email = email;
+        this.senha = senha;
     }
     
      public ArrayList<Produto> getCarrinho() {
@@ -59,12 +58,16 @@ public class Cliente {
         return this.nome;
     }
 
-    public String getEmail() {
-        return this.email;
+    public String getSenha() {
+        return this.senha;
     }
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+    
+    public void setSenha(String senha) {
+        this.senha = senha;
     }
     
 }
