@@ -21,7 +21,7 @@ public class RegistroController {
 	@Autowired
 	RegistroService registroService;
 	
-	@RequestMapping(value = "/registro/novoRegistro/{idCliente}", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.GET)
+	@RequestMapping(value = "/registro/novoRegistro/{idCliente}", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.POST)
 	public String criarRegistroCliente(@PathVariable String idCliente) throws Exception {
 		return this.registroService.criarRegistro(idCliente);
 	}
@@ -37,7 +37,7 @@ public class RegistroController {
 	}
 	
 	@RequestMapping(value = "/registro/pesquisarRegistro/{id}", produces = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.GET)
-	public Registro procurarRegistro(@PathVariable int id) {
+	public Registro procurarRegistro(@PathVariable Integer id) {
 		return this.registroService.procurarRegistro(id);
 	}
 }
