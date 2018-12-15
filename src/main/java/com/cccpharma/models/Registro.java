@@ -15,27 +15,31 @@ public class Registro {
 
 	@Id
 	@Column(name = "id")
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy= GenerationType.AUTO)
 	private Integer id;
 	
 	@Column(name = "venda")
-	private ArrayList<String> venda;
+	private ArrayList<Produto> venda;
 	
 	@Column(name = "quantidade_itens")
 	private Integer quantidadeItens;
 	
 	@Column(name = "total")
 	private double total;
+	
+	@Column(name = "idCliente")
+	private String idCliente;
 
 	
 	public Registro() {
 		
 	}
 	
-	public Registro(Integer quantidadeItens, double total, ArrayList<String> venda) {
+	public Registro(Integer quantidadeItens, double total, ArrayList<Produto> venda, String idCliente) {
 		this.venda = venda;
 		this.quantidadeItens = quantidadeItens;
 		this.total = total;
+		this.idCliente = idCliente;
 	}
 	
 	public Integer getId() {
@@ -46,11 +50,11 @@ public class Registro {
 		this.id = id;
 	}
 
-	public ArrayList<String> getVenda() {
+	public ArrayList<Produto> getVenda() {
 		return venda;
 	}
 
-	public void setVenda(ArrayList<String> venda) {
+	public void setVenda(ArrayList<Produto> venda) {
 		this.venda = venda;
 	}
 

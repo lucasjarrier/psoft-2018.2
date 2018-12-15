@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 
 import com.cccpharma.models.Produto;
 import com.cccpharma.models.Registro;
+import com.cccpharma.models.user.Cliente;
+import com.cccpharma.repositories.ClientRepository;
 import com.cccpharma.repositories.ProductRepository;
 import com.cccpharma.repositories.RegistroRepository;
 
@@ -18,13 +20,16 @@ public class RegistroService {
 	RegistroRepository registroRepository;
 	@Autowired
 	ProductRepository produtoRepository;
+	@Autowired
+	ClientRepository clienteRepository;
 
-	public String criarRegistro(ArrayList<String> codigos) {
-		String retorno;
-		int qtdItens = codigos.size();
-		ArrayList<String> codigosValidados = validaCodigos(codigos);
-		double valorTotal = calculaVenda(codigosValidados);
-		Registro registro = new Registro(qtdItens, valorTotal, codigosValidados);
+	public String criarRegistro(String idCliente) {
+		Cliente cliente = procuraCliente(idCliente);
+		String retorno;		
+		ArrayList<Produto> carrinho = cliente.getCarrinho();
+		int qtdItens = validaCarrinho(carrinho);
+		double valorTotal = calculaVenda(carrinho);
+		Registro registro = new Registro(qtdItens, valorTotal, carrinho, idCliente);
 		try {
 			registroRepository.save(registro);
 			retorno = "Registro Criado!";
@@ -34,23 +39,22 @@ public class RegistroService {
 		return retorno;
 	}
 
-	private ArrayList<String> validaCodigos(ArrayList<String> codigos) {
-		ArrayList<String> codigosValidos = new ArrayList<>();
-		for (String codigo : codigos) {
-			if (produtoRepository.existsById(codigo)) {
-				Produto produto = produtoRepository.findByCodigo(codigo);
-				if (produto.getSituacao()) {
-					codigosValidos.add(codigo);
-				}
-			}
-		}
-		return codigosValidos;
+	private Cliente procuraCliente(String idCliente) {		
+		return clienteRepository.findByUsername(idCliente);
 	}
 
-	private double calculaVenda(ArrayList<String> codigos) {
+	private int validaCarrinho(ArrayList<Produto> carrinho) {
+		ArrayList<Produto> produtosValidos = new ArrayList<>();
+		for (Produto produto : carrinho) {
+			if(produto.getSituacao())
+				produtosValidos.add(produto);
+		}
+		return produtosValidos.size();
+	}
+
+	private double calculaVenda(ArrayList<Produto> carrinho) {
 		double retorno = 0;
-		for (String codigo : codigos) {
-			Produto produto = produtoRepository.findByCodigo(codigo);
+		for (Produto produto : carrinho) {
 			if (produto.getQuantidade() - 1 == 0) {
 				retorno += produto.getPreco() - (produto.getPreco() * produto.getDesconto());
 				produto.subQuantidade();
@@ -73,5 +77,4 @@ public class RegistroService {
 		return registroRepository.findById(id);
 	}
 
-	
 }
