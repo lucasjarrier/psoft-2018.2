@@ -70,4 +70,10 @@ public class Cliente {
         this.senha = senha;
     }
     
+    public void incrementaCarrinho(ArrayList<Produto> novosProdutos) {
+		for (Produto produto : novosProdutos) {
+			this.carrinho.add(produto);
+		}
+	}
+    
 }

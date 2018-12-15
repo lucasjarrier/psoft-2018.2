@@ -1,5 +1,6 @@
 package com.cccpharma.controllers;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.cccpharma.models.Produto;
 import com.cccpharma.models.user.Cliente;
 import com.cccpharma.services.ClientService;
 
@@ -44,6 +46,11 @@ public class ClientController {
 	@RequestMapping(value = "/clientes/login", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.POST)
 	public String login(@RequestBody String username, @RequestBody String senha) throws Exception {
 		return this.clientService.login(username, senha);
+	}
+	
+	@RequestMapping(value = "/clientes/adicionaproduto/{username}", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.GET)
+	public String updateCarrinho(@PathVariable String username, @RequestBody ArrayList<Produto> carrinho) {
+		return this.clientService.adicionaProdutoAoCarrinho(username, carrinho);
 	}
 
 }

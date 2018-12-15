@@ -1,7 +1,9 @@
 package com.cccpharma.services;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import com.cccpharma.models.Produto;
 import com.cccpharma.models.user.Cliente;
 import com.cccpharma.repositories.ClientRepository;
 
@@ -46,6 +48,20 @@ public class ClientService {
 				retorno = "Cliente Validado!";
 			else
 				retorno = "Senha Incorreta!";
+		}
+		return retorno;
+	}
+    
+	public String adicionaProdutoAoCarrinho(String username, ArrayList<Produto> carrinho) {
+		Cliente cliente = clientRepository.findByUsername(username);
+		String retorno;
+		try {
+			clientRepository.delete(cliente);
+			cliente.incrementaCarrinho(carrinho);			
+			clientRepository.save(cliente);
+			retorno = "Carrinho Atualizado";
+		} catch (Exception e) {
+			retorno = e.getMessage();
 		}
 		return retorno;
 	}
