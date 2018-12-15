@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.cccpharma.models.Produto;
 import com.cccpharma.services.ProductService;
 
-@RestController
 @CrossOrigin("*")
+@RestController
 public class ProductController {
 
 	@Autowired
