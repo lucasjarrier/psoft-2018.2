@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -13,6 +15,7 @@ public class Registro {
 
 	@Id
 	@Column(name = "id")
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 	
 	@Column(name = "venda")
@@ -22,16 +25,15 @@ public class Registro {
 	private Integer quantidadeItens;
 	
 	@Column(name = "total")
-	private Integer total;
+	private double total;
 
 	
 	public Registro() {
 		
 	}
 	
-	public Registro(Integer id,  Integer quantidadeItens, Integer total) {
-		this.id = id;
-		this.venda = new ArrayList<String>();
+	public Registro(Integer quantidadeItens, double total, ArrayList<String> venda) {
+		this.venda = venda;
 		this.quantidadeItens = quantidadeItens;
 		this.total = total;
 	}
@@ -56,7 +58,7 @@ public class Registro {
 		return quantidadeItens;
 	}
 
-	public Integer getTotal() {
+	public double getTotal() {
 		return total;
 	}
 }

@@ -110,6 +110,10 @@ public class Produto {
 	public void setDesconto(Integer desconto) {
 		this.desconto = desconto;
 	}
+
+	public void subQuantidade() {
+		this.quantidade = this.quantidade - 1;
+	}
 	
 	
 }

@@ -13,7 +13,7 @@ import com.cccpharma.models.Produto;
 import com.cccpharma.services.ProductService;
 
 @RestController
-@CrossOrigin("*")
+@CrossOrigin(value = "*")
 public class ProductController {
 
 	@Autowired
