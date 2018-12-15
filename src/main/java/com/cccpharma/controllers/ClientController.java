@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.cccpharma.models.user.Cliente;
 import com.cccpharma.services.ClientService;
 
-@CrossOrigin(value = "*")
 @RestController
+@CrossOrigin(value = "*")
 public class ClientController {
 
 	@Autowired
