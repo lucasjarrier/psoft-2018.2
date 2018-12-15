@@ -25,9 +25,9 @@ public class RegistroService {
 
 	public String criarRegistro(String idCliente) {
 		Cliente cliente = procuraCliente(idCliente);
-		String retorno;		
+		String retorno;
 		ArrayList<Produto> carrinho = cliente.getCarrinho();
-		int qtdItens = validaCarrinho(carrinho);
+		int qtdItens = validaProdutos(carrinho).size();
 		double valorTotal = calculaVenda(carrinho);
 		Registro registro = new Registro(qtdItens, valorTotal, carrinho);
 		try {
@@ -42,22 +42,22 @@ public class RegistroService {
 		return retorno;
 	}
 
-	private Cliente procuraCliente(String idCliente) {		
+	private Cliente procuraCliente(String idCliente) {
 		return clienteRepository.findByUsername(idCliente);
 	}
 
-	private int validaCarrinho(ArrayList<Produto> carrinho) {
+	private List<Produto> validaProdutos(List<Produto> produtos) {
 		ArrayList<Produto> produtosValidos = new ArrayList<>();
-		for (Produto produto : carrinho) {
-			if(produto.getSituacao())
+		for (Produto produto : produtos) {
+			if (produto.getSituacao())
 				produtosValidos.add(produto);
 		}
-		return produtosValidos.size();
+		return produtosValidos;
 	}
 
-	private double calculaVenda(ArrayList<Produto> carrinho) {
+	private double calculaVenda(List<Produto> produtos) {
 		double retorno = 0;
-		for (Produto produto : carrinho) {
+		for (Produto produto : produtos) {
 			if (produto.getQuantidade() - 1 == 0) {
 				retorno += produto.getPreco() - (produto.getPreco() * produto.getDesconto());
 				produto.subQuantidade();
@@ -80,4 +80,34 @@ public class RegistroService {
 		return registroRepository.findById(id);
 	}
 
+	public String criarRegistro(ArrayList<Produto> produtos) {
+		String retorno;
+		int qtdItens = validaProdutos(produtos).size();
+		double valorTotal = calculaVenda(produtos);
+		Registro registro = new Registro(qtdItens, valorTotal, produtos);
+		try {
+			registroRepository.save(registro);
+			retorno = "Registro Criado!";
+		} catch (Exception e) {
+			retorno = e.getMessage();
+		}
+		return retorno;
+	}
+
+	public String removeRegistro(int id) {
+		String retorno;
+		try {
+			registroRepository.delete(registroRepository.findById(id));
+			List<Produto> produtos = registroRepository.findById(id).getVenda();
+			for (Produto p : produtos) {
+				produtoRepository.delete(p);
+				p.setQuantidade(p.getQuantidade() + 1);
+				produtoRepository.save(p);				
+			}
+			retorno = "Registro Apagado!";
+		} catch (Exception e) {
+			retorno = e.getMessage();
+		}
+		return retorno;
+	}
 }

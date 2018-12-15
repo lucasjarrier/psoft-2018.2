@@ -1,6 +1,7 @@
 package com.cccpharma.models;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -45,7 +46,7 @@ public class Registro {
 		this.id = id;
 	}
 
-	public ArrayList<Produto> getVenda() {
+	public List<Produto> getVenda() {
 		return venda;
 	}
 
