@@ -8,7 +8,6 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 
 import com.cccpharma.models.Produto;
 
@@ -18,8 +17,8 @@ import com.cccpharma.models.Produto;
 public class Cliente {
 
     @Id
-    @Column(name = "cpf")
-    private String cpf;
+    @Column(name = "username")
+    private String username;
 
     @Column(name = "nome")
     @NotNull(message = "Nome não pode ser nulo!")
@@ -38,9 +37,8 @@ public class Cliente {
 
     }
 
-    public Cliente(@Size(min = 11, max = 11) String cpf, 
-    String nome, String email) {
-        this.cpf = cpf;
+    public Cliente(String username, String nome, String email) {
+        this.username = username;
         this.nome = nome;
         this.email = email;
     }
@@ -53,16 +51,16 @@ public class Cliente {
          this.carrinho = carrinho;
      }
 
-    public String getCpf() {
-        return cpf;
+    public String getUsername() {
+        return this.username;
     }
 
     public String getNome() {
-        return nome;
+        return this.nome;
     }
 
     public String getEmail() {
-        return email;
+        return this.email;
     }
 
     public void setNome(String nome) {

@@ -40,12 +40,12 @@ public class ProductController {
 	}
 	
 	@RequestMapping(value = "/produtos/crud", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.POST)
-	public Produto addProduct(@RequestBody Produto produto) {
+	public Produto addProduct(@RequestBody Produto produto) throws Exception {
 		return this.productService.cadastrar(produto);
 	}
 	
 	@RequestMapping(value = "/produtos/crud/{codigo}", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.PUT)
-	public Double serPrice(@PathVariable String codigo, @RequestBody Double preco) {
+	public Double serPrice(@PathVariable String codigo, @RequestBody Double preco) throws Exception {
 		return this.productService.mudarPreco(codigo, preco);
 	}
 

@@ -24,17 +24,31 @@ public class ProductService {
         return this.productRepository.findAll();
     }
     
-    public Produto cadastrar(Produto produto) {
-		return this.productRepository.save(produto);
+    public boolean verificaCodigo(String codigo) {
+    	return this.productRepository.existsById(codigo);
+    }
+    
+    public Produto cadastrar(Produto produto) throws Exception {
+    	if (!verificaCodigo(produto.getCodigo())) {
+    		this.productRepository.save(produto);
+    		return produto;
+    	} else {
+    		throw new Exception("Produto já cadastrado!");
+    	}
+		
 	}
 
     public Produto findByNome(String nome) {
         return this.productRepository.findByNome(nome);
     }
     
-    public Double mudarPreco(String codigo, Double preco) {
-    	this.productRepository.mudarPreco(codigo, preco);
-    	return preco;
+    public Double mudarPreco(String codigo, Double preco) throws Exception {
+    	if (verificaCodigo(codigo) && preco >= 0) {
+    		this.productRepository.mudarPreco(codigo, preco);
+    		return preco;
+    	} else {
+    		throw new Exception("Produto não cadastrado ou preço inválido!");
+    	}
     }
     
     public Produto findByCodigo(String codigo) {

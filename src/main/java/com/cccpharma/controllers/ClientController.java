@@ -29,13 +29,13 @@ public class ClientController {
 	}
 	
 	@RequestMapping(value = "/clientes/cadastrar", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.POST)
-	public Cliente addClient(@RequestBody Cliente client) {
+	public Cliente addClient(@RequestBody Cliente client) throws Exception {
 		return this.clientService.cadastrar(client);
 	}
 	
-	@RequestMapping(value = "/clientes/deletar/{cpf}", method = RequestMethod.DELETE)
-	public String deleteClient(@PathVariable String cpf) {
-		return this.clientService.excluir(cpf);
+	@RequestMapping(value = "/clientes/deletar/{username}", method = RequestMethod.DELETE)
+	public String deleteClient(@PathVariable String username) throws Exception {
+		return this.clientService.excluir(username);
 	}
 	
 

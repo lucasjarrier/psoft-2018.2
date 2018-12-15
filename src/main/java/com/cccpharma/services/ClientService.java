@@ -20,15 +20,27 @@ public class ClientService {
         return this.clientRepository.findAll();
     }
 
-    public Cliente cadastrar(Cliente client) {
-         this.clientRepository.save(client);
-         return client;
+    public Cliente cadastrar(Cliente client) throws Exception {
+         if (!verificaUsername(client.getUsername())) {
+        	 this.clientRepository.save(client);
+        	 return client;
+         } else {
+        	 throw new Exception("Cliente já cadastrado!");
+         }
     }
 
-    public String excluir(String cpf) {
-    	this.clientRepository.deleteById(cpf);
-    	return "Cliente deletado!";
+    public String excluir(String username) throws Exception {
+    	if (verificaUsername(username)) {
+    		this.clientRepository.deleteById(username);
+    		return "Cliente deletado!";
+    	} else {
+    		throw new Exception("Cliente não encontrado!");
+    	}
+    
     }
-   
+    
+    public boolean verificaUsername(String username) {
+    	return this.clientRepository.existsById(username);
+    }
     
 }
