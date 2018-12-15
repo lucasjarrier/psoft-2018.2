@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.cccpharma.models.Produto;
 import com.cccpharma.services.ProductService;
 
-@CrossOrigin("*")
+@CrossOrigin(value = "*")
 @RestController
 public class ProductController {
 
