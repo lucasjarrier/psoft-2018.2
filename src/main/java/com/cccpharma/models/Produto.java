@@ -48,12 +48,12 @@ public class Produto {
 
 	}
 
-	public Produto(String codigo, String nome, String fabricante, boolean situacao, String categoria, Double preco,
+	public Produto(String codigo, String nome, String fabricante, String categoria, Double preco,
 			int quantidade) {
 		this.codigo = codigo;
 		this.nome = nome;
 		this.fabricante = fabricante;
-		this.situacao = situacao;
+		this.situacao = true;
 		this.categoria = categoria;
 		this.preco = preco;
 		this.quantidade = quantidade;
