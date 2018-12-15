@@ -56,7 +56,6 @@ public class ClientService {
 		Cliente cliente = clientRepository.findByUsername(username);
 		String retorno;
 		try {
-			clientRepository.delete(cliente);
 			cliente.incrementaCarrinho(carrinho);			
 			clientRepository.save(cliente);
 			retorno = "Carrinho Atualizado";
@@ -70,7 +69,6 @@ public class ClientService {
 		Cliente cliente = clientRepository.findByUsername(username);
 		String retorno;
 		try {
-			clientRepository.delete(cliente);
 			cliente.removeCarrinho(produto);			
 			clientRepository.save(cliente);
 			retorno = "Carrinho Atualizado";
