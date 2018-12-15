@@ -1,5 +1,6 @@
 package com.cccpharma.models;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,7 +13,12 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "registro")
-public class Registro {
+public class Registro implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@Column(name = "id")

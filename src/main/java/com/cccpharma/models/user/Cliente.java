@@ -1,5 +1,6 @@
 package com.cccpharma.models.user;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import javax.persistence.Column;
@@ -14,9 +15,14 @@ import com.cccpharma.models.Produto;
 
 @Entity
 @Table(name = "cliente")
-public class Cliente {
+public class Cliente implements Serializable {
 
-    @Id
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	@Id
     @Column(name = "username")
     private String username;
 
