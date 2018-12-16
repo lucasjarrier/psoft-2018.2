@@ -22,8 +22,8 @@ public class AdminService {
 		return retorno;
 	}
 	
-	public String criaAdmin() {
-		Admin admin = new Admin("admin","12345");
+	public String criaAdmin(String username, String senha) {
+		Admin admin = new Admin(username,senha);
 		adminRepository.save(admin);
 		return "Admin Cadastrado";
 	}
