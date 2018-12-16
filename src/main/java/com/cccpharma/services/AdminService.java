@@ -1,5 +1,7 @@
 package com.cccpharma.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,15 +14,23 @@ public class AdminService {
 	@Autowired
 	AdminRepository adminRepository;
 
-	public String login(String senha) {
-		String retorno;
+	public Boolean login(String senha) {
+		Boolean retorno = false;
 		String senhaAdmin = adminRepository.getAdmin();
-		if (senha.equals(senhaAdmin)) {
-			retorno = "Administrador Validado";
-		} else {
-			retorno = "Senha Incorreta!";
-		}
+		if (senha.equals(senhaAdmin))
+			retorno = true;
 		return retorno;
+	}
+	
+	public String criaAdmin() {
+		Admin admin = new Admin("admin","12345");
+		adminRepository.save(admin);
+		return "Admin Cadastrado";
+	}
+	
+	
+	public List<Admin> get() {
+		return this.adminRepository.findAll();
 	}
 	
 
