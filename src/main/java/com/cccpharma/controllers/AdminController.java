@@ -27,13 +27,13 @@ public class AdminController {
 	}
 	
 	
-	@RequestMapping(value = "/admin/{username}", produces = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.POST)
-	public String criaAdmin(@PathVariable String username, @RequestBody String senha) {
-		return this.adminService.criaAdmin(username,senha);
-	}
-	
-	@RequestMapping(value = "/admin", produces = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.GET)
-	public List<Admin> get() {
-		return this.adminService.get();
-	}
+//	@RequestMapping(value = "/admin/{username}", produces = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.POST)
+//	public String criaAdmin(@PathVariable String username, @RequestBody String senha) {
+//		return this.adminService.criaAdmin(username,senha);
+//	}
+//	
+//	@RequestMapping(value = "/admin", produces = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.GET)
+//	public List<Admin> get() {
+//		return this.adminService.get();
+//	}
 }
