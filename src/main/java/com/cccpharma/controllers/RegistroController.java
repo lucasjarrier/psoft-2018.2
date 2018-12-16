@@ -46,4 +46,5 @@ public class RegistroController {
 	public String removerRegistro(@PathVariable Integer id) {
 		return this.registroService.removeRegistro(id);
 	}
+	
 }

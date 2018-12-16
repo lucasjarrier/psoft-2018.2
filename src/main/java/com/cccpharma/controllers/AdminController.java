@@ -19,4 +19,5 @@ public class AdminController {
 	public String login(@RequestBody String username, @RequestBody String senha) {
 		return this.adminService.login(username, senha);
 	}
+	
 }

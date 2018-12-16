@@ -67,4 +67,5 @@ public class Registro implements Serializable {
 	public double getTotal() {
 		return total;
 	}
+	
 }

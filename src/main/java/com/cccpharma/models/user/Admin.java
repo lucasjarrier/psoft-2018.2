@@ -20,7 +20,6 @@ public class Admin {
     @NotEmpty(message = "Nome não pode ser vazio!")
     private String nome;
 
-
     @Column(name = "senha")
     @NotNull(message = "Senha não pode ser nulo!")
     @NotEmpty(message = "Senha não pode ser vazio!")
