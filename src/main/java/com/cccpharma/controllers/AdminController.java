@@ -16,8 +16,8 @@ public class AdminController {
 	AdminService adminService;
 	
 	@RequestMapping(value = "/admin/login", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.POST)
-	public String login(@RequestBody String username, @RequestBody String senha) {
-		return this.adminService.login(username, senha);
+	public String login(@RequestBody String senha) {
+		return this.adminService.login(senha);
 	}
 	
 }

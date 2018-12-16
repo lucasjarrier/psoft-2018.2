@@ -15,11 +15,6 @@ public class Admin {
     @Column(name = "username")
     private String username;
 
-    @Column(name = "nome")
-    @NotNull(message = "Nome não pode ser nulo!")
-    @NotEmpty(message = "Nome não pode ser vazio!")
-    private String nome;
-
     @Column(name = "senha")
     @NotNull(message = "Senha não pode ser nulo!")
     @NotEmpty(message = "Senha não pode ser vazio!")
@@ -29,9 +24,8 @@ public class Admin {
 
     }
 
-    public Admin(String username, String nome, String senha) {
-    	 this.username = "Thallysinho xD";
-         this.nome = "Thallyson";
+    public Admin(String username, String senha) {
+    	 this.username = "admin";
          this.senha = "123456789";
     }
 
@@ -39,18 +33,10 @@ public class Admin {
         return this.username;
     }
 
-    public String getNome() {
-        return this.nome;
-    }
-
     public String getSenha() {
         return this.senha;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-    
     public void setSenha(String senha) {
         this.senha = senha;
     }

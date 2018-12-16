@@ -11,22 +11,17 @@ public class AdminService {
 
 	@Autowired
 	AdminRepository adminRepository;
-	
-	public String login(String username, String senha) {
+
+	public String login(String senha) {
 		String retorno;
-		Admin admin = adminRepository.findByUsername(username);
-		if (admin == null) {
-			retorno = "Administrador Invalido";
-		}
-		else {
-			if (senha.equals(admin.getSenha())) {
-				retorno = "Administrador Validado";
-			}
-			else {
-				retorno = "Senha Incorreta!";
-			}
+		String senhaAdmin = adminRepository.getAdmin();
+		if (senha.equals(senhaAdmin)) {
+			retorno = "Administrador Validado";
+		} else {
+			retorno = "Senha Incorreta!";
 		}
 		return retorno;
 	}
+	
 
 }
