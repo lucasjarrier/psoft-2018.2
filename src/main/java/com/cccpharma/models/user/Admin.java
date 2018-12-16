@@ -25,8 +25,8 @@ public class Admin {
     }
 
     public Admin(String username, String senha) {
-    	 this.username = "admin";
-         this.senha = "123456789";
+    	 this.username = username;
+         this.senha = senha;
     }
 
     public String getUsername() {
