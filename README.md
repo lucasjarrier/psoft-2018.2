@@ -1,33 +1,16 @@
-## CCC PHARMA
+## UCDb: classificações e reviews de cursos da UFCG
 
 #### Descrição:
-> Uma nova farmácia vai ser aberta em Campina Grande e precisa de um sistema que gerencie o estoque de produtos vendidos. Neste sistema, o administrador deve obter uma visão geral e o controle sobre o funcionamento da farmácia, por exemplo, ele deve poder adicionar novos produtos, acompanhar quantas unidades do produto estão disponíveis, alterar preços, ser notificado sobre eventos críticos, gerenciar as vendas e oferecer alguns serviços personalizados para o cliente.
+> 
+O UFCG Cursos database é uma aplicação para classificação e reviews de disciplinas de cursos da UFCG. Por enquanto, a versão 1 do sistema será alimentada apenas com disciplinas do curso de Ciência da Computação. Os usuários dessa aplicação irão construir conteúdo sobre as disciplinas de forma colaborativa através de comentários e likes nas disciplinas. O sistema deve usar essa informação construída para rankear as disciplinas do curso.
 
 #### User Stories requeridas:
-- [x] Eu, como administrador, gostaria de ter o sistema armazenando todos os seus dados de forma persistente em um banco de dados.
-- [x] Eu, como usuário, gostaria de acessar o sistema através de um link na web, preferencialmente usando o Heroku.
-- [ ] Eu, como administrador, gostaria de logar no sistema, para ter acesso às funcionalidades destinadas ao administrador.
-- [x] Eu, como cliente, gostaria de realizar o cadastro no sistema, para poder obter acesso ao sistema.
-- [ ] Eu, como cliente, gostaria de logar no sistema, para poder ter acesso às funcionalidades destinadas ao cliente.
-
-#### User Stories Optativas:
-- [x] Eu, como administrador, gostaria de adicionar um novo produto no sistema, informando seu nome, código de barra, fabricante, situação e categoria. As categorias disponíveis na farmácia são: medicamentos, produtos de higiene pessoal, cosméticos e alimentos.
-- [x] Eu, como administrador, gostaria de consultar a disponibilidade e o preço de cada produto da farmácia.
-- [x] Eu, como administrador, gostaria de atribuir um preço (R$) a um determinado produto no sistema.
-- [x] Eu, como cliente, gostaria de consultar a disponibilidade e o preço de cada produto da farmácia (não precisa estar logado).
-- [x] Eu, como administrador, gostaria de ordenar os produtos e os registros de vendas da farmácia de acordo com informações importantes deles (por exemplo, ordenar os produtos por nome, preço, data, categoria).
-- [x] Eu, como administrador, gostaria de atribuir descontos para cada categoria de produto, dessa forma, o cliente recebe um abatimento no valor final da compra. Tipos de desconto: sem desconto (0%), bom desconto (10%), ótimo desconto (25%) e super desconto (50%).
-- [x] Eu, como administrador, gostaria que um produto fosse marcado como indisponível quando a quantidade de itens dele for igual a zero. Dessa forma, o seu preço não pode ser mais exibido para os clientes e ele deve ser adicionado na lista de produtos em falta.
-- [ ] Eu, como administrador, gostaria de registrar uma venda, informando os produtos, a quantidade de itens e registrando o valor total da venda (descontos devem ser considerados). O número de itens do produto deve ser decrementado.
-- [ ] Eu, como administrador, gostaria de cancelar uma venda, dessa forma, o registro de venda deve ser deletado e o número itens do produto deve ser incrementado, tornando-os disponíveis para venda novamente.
-- [ ] Eu, como administrador, gostaria de receber notificações na tela inicial do sistema, avisando quando a quantidade de itens de um produto está baixa (abaixo de 15 unidades).
-- [x] Eu, como cliente, gostaria de reservar minhas compras pelo sistema, assim, minhas compras seriam coletadas e empacotadas com antecedência.
+Caso de uso 1: cadastrar/autenticar usuários</a></span></p><p class="c19"><span class="c6"><a class="c13" href="#h.nm9y6rwwey1k">Caso de uso 2: pesquisar disciplinas a partir de uma (sub)string</a></span></p><p class="c19"><span class="c6"><a class="c13" href="#h.vxft1kkwg7au">Caso de uso 3: Deve ser possível recuperar o perfil de uma disciplina a partir do seu código numérico</a></span></p><p class="c19"><span class="c6"><a class="c13" href="#h.6frwmyey67ap">Caso de uso 4: Adicionar comentários de uma disciplina</a></span></p><p class="c19"><span class="c6"><a class="c13" href="#h.pqlrp87mrust">Caso de uso 5: Apagar comentários de uma disciplina</a></span></p><p class="c19"><span class="c6"><a class="c13" href="#h.6glrfd73465a">Caso de uso 6: Dar/retirar like em uma disciplina</a></span></p><p class="c19"><span class="c6"><a class="c13" href="#h.d7ziyr136dk9">Caso de uso 7: mostrar ranking das disciplinas</a></span></p><p class="c26"><span class="c12"><a class="c13" href="#h.8oibzgb1kams">
  
 
 #### Grupo:
-* [André Queiroz](https://github.com/andrefqms)
-* [Luan Carlos](https://github.com/LuanC03)
-* [Lucas Anthony](https://github.com/lucasanthony)
-* [Thallyson José](https://github.com/thallysonjsa)
+* [Lucas Jarrier](https://github.com/lucasjarrier)
+* [Enzo Raian](https://github.com/enzoraian)
+* [Domingos Gabriel](https://github.com/DomingosGOA)
 
-Universidade Federal de Campina Grande, 2018.
+Universidade Federal de Campina Grande, 2019.
